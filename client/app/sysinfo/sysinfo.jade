@@ -1,1 +1,38 @@
-p Hi!
+.sysinfo-container.p2
+  table.table.table-striped(border='2')
+    tr
+      td.info-label-column Serial number
+      td {{ serial }}
+    tr
+      td.info-label-column Firmware version
+      td {{ firmwareVer }}
+    tr
+      td.info-label-column Sound encoding
+      td {{ soundEncoding }}
+    tr
+      td.info-label-column Time
+      td {{ timestamp.toDate() | date:"HH:mm:ss &nbsp;&nbsp;&nbsp; dd.MM.yyyy" }}
+    tr
+      td.info-label-column Uptime
+      td {{ uptime }}
+    tr
+      td.info-label-column System load
+      td {{ sysLoad }}
+    tr
+      td.info-label-column Disk Usage
+      td {{ diskUsage }}
+    tr
+      td.info-label-column(colspan='2')
+        b Network
+    tr
+      td.info-label-column Mac address
+      td {{ macAddress }}
+    tr
+      td.info-label-column IP and mask
+      td {{ ip }}
+    tr
+      td.info-label-column Gateway
+      td {{ gateway }}
+    tr
+      td.info-label-column DNS server
+      td {{ dnsServer }}
