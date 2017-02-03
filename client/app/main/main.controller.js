@@ -11,6 +11,10 @@ angular.module('projectsApp')
 
     $scope.sidebarItems = [
       {
+        state: 'main.sysinfo',
+        title: 'О системе'
+      },
+      {
         state: 'main.test',
         title: 'Тест'
       }
