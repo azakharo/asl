@@ -8,7 +8,11 @@ angular.module('projectsApp', [
   'ngSanitize',
   'btford.socket-io',
   'ui.router',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ngAnimate',
+  'angularSpinner',
+  'LocalStorageModule',
+  'gitlabSidebar'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

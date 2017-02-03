@@ -1,29 +1,32 @@
 'use strict';
 
 angular.module('projectsApp')
-  .controller('MainCtrl', function ($scope, $http, socket) {
-    $scope.awesomeThings = [];
+  .controller('MainCtrl', function ($scope, $rootScope, $timeout) {
+    $rootScope.isSidebarShown = false; // window.innerWidth >= 768;
+    $rootScope.isGettingData = false;
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-      socket.syncUpdates('thing', $scope.awesomeThings);
-    });
+    $scope.onSidebarToggleClick = function () {
+      $rootScope.isSidebarShown = !$rootScope.isSidebarShown;
+    };
 
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
-        return;
+    $scope.sidebarItems = [
+      {
+        state: 'main.test',
+        title: 'Тест'
       }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
+    ];
+
+    const BRAND_SELECTOR = 'a.navbar-brand > img';
+    const BRAND_ANIM_CLASSES = 'animated flipInX';
+    $scope.animateBrand = function() {
+      $(BRAND_SELECTOR).removeClass(BRAND_ANIM_CLASSES);
+      $timeout(function () {
+        $(BRAND_SELECTOR).addClass(BRAND_ANIM_CLASSES);
+      }, 0);
     };
 
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
+    $scope.onSidebarItemClick = function () {
+      $scope.animateBrand();
     };
 
-    $scope.$on('$destroy', function () {
-      socket.unsyncUpdates('thing');
-    });
-
-    $scope.appVer = APP_VERSION;
   });

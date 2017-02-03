@@ -1,39 +1,101 @@
-.thing-form {
-  margin: 20px 0;
+.main-container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  background: #000000;
 }
 
-#banner {
-    border-bottom: none;
-    margin-top: -20px;
+/////////////////////////////////////////////////
+// navbar
+
+.my-navbar {
+  margin-bottom: 0 !important;
+  border-radius: 0 !important;
+  flex: none;
 }
 
-#banner h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+.dropdown-menu {
+  z-index: 1001 !important;
 }
 
-#banner__img {
-  width: 64px;
-  height: 64px;
+//.navbar-inverse .dropdown-menu {
+//  background-color: #222;
+//  border-color: #080808;
+//  & > li > a{
+//    color: #999;
+//    &:hover {
+//      color: #fff;
+//      background-color: #000;
+//    }
+//  }
+//  & > .divider {
+//    background-color: #000;
+//  }
+//}
+
+
+.navbar-sidebar-toggle-container {
+  float: left;
+  margin-top: 8px;
+  width: 60px;
 }
 
-.hero-unit {
-    position: relative;
-    padding: 30px 15px;
-    color: #F5F5F5;
-    text-align: center;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-    background: #4393B9;
+@media (max-width: 768px) {
+  .navbar-sidebar-toggle-container {
+    .pl1;
+  }
 }
 
-.footer {
-    text-align: center;
-    padding: 30px 0;
-    margin-top: 70px;
-    border-top: 1px solid #E5E5E5;
+
+///////////////////////////////////////
+// Navbar sidebar toggler animation
+
+//.navbar-sidebar-toggler.ng-hide-add {
+//  animation: 0.5s fadeOut ease;
+//}
+//
+.navbar-sidebar-toggler.ng-hide-remove {
+  animation: 1.5s fadeIn ease;
 }
 
-.navbar-text {
-    margin-left: 15px;
+// Navbar sidebar toggler animation
+///////////////////////////////////////
+
+
+a.navbar-brand {
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 480px) {
+  a.navbar-brand > img {
+    display: none;
+  }
+}
+
+a.navbar-brand > img {
+  animation-duration: 1.5s;
+}
+
+// navbar
+/////////////////////////////////////////////////
+
+.content-container {
+  flex: 1;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.page-content-container {
+  flex: 1;
+}
+
+.my-footer {
+  flex: none;
+  background: #000000;
+  color: #ffffff;
 }
